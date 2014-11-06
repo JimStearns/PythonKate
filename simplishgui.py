@@ -56,23 +56,17 @@ class SimplishFrame(tk.Frame):
         def __init__(self, width, height, background="lightgray"):
             tk.Canvas.__init__(self, width=width, height=height, background=background)
 
-        def draw_line(self, xyStart, xyEnd, lineWidth, lineColor):
+        def draw_line(self, xyStart, xyEnd, line_width, line_color):
             """
             Support calls like this: "canvas.draw_line([WIDTH / 2, 0],[WIDTH / 2, HEIGHT], 2, "White")"
             """
             # For readability
             X = 0
             Y = 1
-            self.create_line(xyStart[X], xyStart[Y], xyEnd[X], xyEnd[Y], width=lineWidth, fill=lineColor)
+            self.create_line(xyStart[X], xyStart[Y], xyEnd[X], xyEnd[Y], width=line_width, fill=line_color)
 
-        def draw_circle(self, xyCenter, radius, borderWidth, borderColor, fillColor):
-            """
-            :param xyCenter:
-            :param radius:
-            :param borderWidth:
-            :param borderColor:
-            :param fillColor:
-            :return: none
+        def draw_circle(self, xy_center, radius, border_width, border_color, fill_color):
+            """Map the parameters of simplegui's draw_circle to Tkinter's create_circle, and call the latter.
             """
             # For readability
             X = 0
@@ -82,14 +76,14 @@ class SimplishFrame(tk.Frame):
             # Use center +/- radius to define these.
             # TODO: Could be off-by-one because oval will coincide with upper left of
             # box defined by (x0, y0), (x1, y1) but is just inside the on the lower right.
-            x0 = xyCenter[X] - radius
-            x1 = xyCenter[X] + radius
-            y0 = xyCenter[Y] - radius
-            y1 = xyCenter[Y] + radius
+            x0 = xy_center[X] - radius
+            x1 = xy_center[X] + radius
+            y0 = xy_center[Y] - radius
+            y1 = xy_center[Y] + radius
             #print("Circle center=({0}), R={1}".format(xyCenter, radius))
             #print("Drawing a circle in box ({0},{1}), ({2},{3}), border width/color={4}/{5}, fill={6}".format(
             #    x0, y0, x1, y1, borderWidth, borderColor, fillColor))
-            self.create_oval(x0, y0, x1, y1, width=borderWidth, outline=borderColor, fill=fillColor)
+            self.create_oval(x0, y0, x1, y1, width=border_width, outline=border_color, fill=fill_color)
 
         def draw_text(self, textString, xyLowerLeft, fontSize, fontColor):
             """
