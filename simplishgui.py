@@ -128,11 +128,11 @@ class SimplishFrame(tk.Frame):
         self.draw_handler_method = method_to_call
 
     def set_keydown_handler(self, method_to_call):
-        self.keydown_handler_method = method_to_call
+        print("Event KeyPress bound to method {0}".format(method_to_call))
+        self.bind_all('<KeyPress>', method_to_call)
 
     def set_keyup_handler(self, method_to_call):
-        self.keyup_handler_method = method_to_call
-
+        self.bind_all('<KeyRelease>', method_to_call)
 
     ##
     # Draw handler machinery. Unlike key and other events, a timer must be set up for the draw handler

@@ -150,26 +150,27 @@ def draw_score_red(canvas):
     
 def draw_score_blue(canvas):    
     canvas.draw_text("0", [WIDTH / 1.4, HEIGHT / 4], 40, "Cyan")
-    
+
 def keydown(key):
+    print("Press of key {0}".format(key.keysym))
     global paddle_red_vel, paddle_blue_vel, paddle_red_pos
-    if key == simplegui.KEY_MAP["w"]:
-        print "up"
+    if key.keysym == "w":
+        print "red up"
         paddle_red_pos[1] -= HEIGHT / 20
         if paddle_red_pos[1] < 0:
             paddle_red_pos[1] = 0
-    elif key == simplegui.KEY_MAP["up"]:
-        print "up"
+    elif key.keysym == "Up":
+        print "blue up"
         paddle_blue_pos[1] -= HEIGHT / 20
         if paddle_blue_pos[1] < 0:
             paddle_blue_pos[1] = 0
-    elif key == simplegui.KEY_MAP["s"]:
-        print "down"
+    elif key.keysym == "s":
+        print "red down"
         paddle_red_pos[1] += HEIGHT / 20
         if paddle_red_pos[1] > HEIGHT - PAD_HEIGHT:
             paddle_red_pos[1] = HEIGHT - PAD_HEIGHT
-    elif key == simplegui.KEY_MAP["down"]:
-        print "down"
+    elif key.keysym == "Down":
+        print "blue down"
         paddle_blue_pos[1] += HEIGHT / 20
         if paddle_blue_pos[1] > HEIGHT - PAD_HEIGHT:
             paddle_blue_pos[1] = HEIGHT - PAD_HEIGHT
@@ -177,7 +178,7 @@ def keydown(key):
         
    
 def keyup(key):
-    global paddle_red_vel, paddle_blue_vel
+    print("Release of key {0}".format(key.keysym))
 
 
 # Create the UI window.
