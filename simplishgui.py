@@ -212,6 +212,8 @@ class SimplishGui():
         # Changes from simplegui
         1.  Instantiate the GUI
             pongGui = SimplishGui()
+        2.  To fire up GUI, use frame.mainloop() rather than frame.start().
+            And behavior is different, the call doesn't return until window is closed.
 
     '''
 
