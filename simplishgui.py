@@ -1,5 +1,7 @@
 """ A quick and dirty effort to approximate the simple graphics functionality that package simplegui provides
     for CodeSculptor. Provides a simple-ish wrapper around "Tkinter", the most common graphics UI package for Python.
+
+    8-Nov-2014
 """
 
 import Tkinter as tk
