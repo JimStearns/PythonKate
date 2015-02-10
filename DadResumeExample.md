@@ -1,4 +1,4 @@
-# A Header
+# Example of a Markdown File in GitHub Repository
 
 Markdown is pretty easy to use - it's just special text embedded within the "real" text to handle formatting.
 
